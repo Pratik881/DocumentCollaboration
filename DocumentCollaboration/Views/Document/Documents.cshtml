@@ -1,0 +1,30 @@
+﻿@model  DocumentCollaboration.ViewModels.JoinDocumentViewModel
+@{
+    ViewData["Title"] = "Create Document";
+}
+
+<h2>Create New Document</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <button id="createDocBtn" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#documentForm">
+        Create New Document
+    </button>
+
+    <!-- Hidden input field and save button -->
+    <div id="documentForm" class="collapse" style="margin-top: 10px;">
+        <form asp-action="CreateDocument" asp-controller="Document" method="post">
+            <input type="text" id="documentTitle" name="Title" class="form-control" placeholder="Enter document title" />
+            <textarea id="documentContent" name="Content" class="form-control" placeholder="Enter document content" style="margin-top: 5px;"></textarea>
+            <button type="submit" class="btn btn-success" style="margin-top: 5px;">Save</button>
+        </form>
+    </div>
+   
+    
+    <form id="collaborate" asp-action="JoinDocument" asp-controller="Document" method="post">
+        <label>Want to collaborate? Enter document ID:</label>
+        <input type="text" id="documentIdInput" name="documentId" placeholder="Enter document ID" />
+        <span asp-validation-for="DocumentId"></span>
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+}

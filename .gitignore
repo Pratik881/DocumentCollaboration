@@ -1,0 +1,27 @@
+# Ignore build and dependency files
+bin/
+obj/
+node_modules/
+packages/
+
+# Ignore VS and Rider specific files
+.vs/
+.idea/
+
+# Ignore user settings and logs
+*.user
+*.suo
+*.log
+logs/
+
+# Ignore environment-specific configurations
+appsettings.json
+appsettings.Development.json
+secrets.json
+
+# Ignore EF Migrations (optional)
+Migrations/
+
+# Ignore publish outputs
+publish/
+dist/
